@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>扬帆手账 · 自由之海</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    .back-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(255,255,255,0.95); padding: 8px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .back-bar a { text-decoration: none; color: #01579b; font-weight: 600; }
+    .back-bar .title { font-size: 1rem; color: #333; }
+  </style>
+  <script src="libs/aframe.min.js"></script>
+</head>
+<body>
+  <!-- 返回导航栏：从首页导航进入，可一键返回 -->
+  <div class="back-bar">
+    <a href="../index.html">&larr; 返回扬帆手账</a>
+    <span class="title">扬帆 · 自由之海（复用课堂七个人场景）</span>
+  </div>
+
+  <!-- A-Frame 场景：复用课堂七 my-scene.html「扬帆·自由之海」 -->
+  <a-scene>
+    <!-- 环境 -->
+    <a-sky color="#b3e5fc"></a-sky>
+    <a-plane
+      position="0 0 -4" rotation="-90 0 0"
+      width="20" height="20" color="#1c6e8c">
+    </a-plane>
+
+    <!-- 主体：帆船（船身+桅杆+白帆） -->
+    <a-box position="0 0.6 -6" width="3" height="0.5" depth="1.2" color="#6d4c41"></a-box>
+    <a-cylinder position="0 2.0 -6" radius="0.08" height="3.2" color="#5d4037"></a-cylinder>
+    <a-box position="0 2.2 -5.4" width="2.4" height="2.6" depth="0.05" color="#ffffff"
+      animation="property: scale; to: 1 1.05 1; dir: alternate; dur: 900; loop: true">
+    </a-box>
+
+    <!-- 海鸥（上下翻飞） -->
+    <a-cone position="3 3.5 -5" radius="0.15" height="0.4" color="#ffffff"
+      animation="property: position; to: 3 4.2 -5; dir: alternate; dur: 900; loop: true">
+    </a-cone>
+
+    <!-- 灯塔：塔身+发光球（点光源） -->
+    <a-cylinder position="-3 1.2 -4" radius="0.2" height="2.4" color="#ef5350"></a-cylinder>
+    <a-sphere position="-3 2.6 -4" radius="0.3" color="#fff59d"
+      animation="property: scale; to: 1.4 1.4 1.4; dir: alternate; dur: 1200; loop: true">
+    </a-sphere>
+    <a-light type="point" position="-3 2.7 -4" color="#fff59d" intensity="0.8"></a-light>
+
+    <!-- 环境光 -->
+    <a-light type="ambient" color="#ffffff" intensity="0.7"></a-light>
+
+    <!-- 相机初始位：稍远处平视海面 -->
+    <a-camera position="0 1.8 2"></a-camera>
+  </a-scene>
+</body>
+</html>
