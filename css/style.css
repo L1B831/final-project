@@ -1,0 +1,97 @@
+/* style.css — 扬帆手账 海洋风自定义样式（在Bootstrap之后引入，保证能覆盖） */
+
+:root {
+  --sea-deep: #01579b;   /* 深海蓝：导航、标题 */
+  --sea: #0288d1;        /* 海蓝：主按钮 */
+  --sea-light: #4fc3f7;  /* 浅海蓝：强调 */
+  --foam: #e1f5fe;       /* 浪花：浅底色 */
+  --sand: #fff8e1;       /* 沙滩：暖色点缀 */
+}
+
+body {
+  background-color: #f5fbff;
+}
+
+/* 锚点定位时避开吸顶导航 */
+section[id], header[id] {
+  scroll-margin-top: 70px;
+}
+
+/* 导航：深海蓝底白字 */
+.nav-sea {
+  background-color: var(--sea-deep);
+}
+.nav-sea .navbar-brand,
+.nav-sea .nav-link {
+  color: #ffffff;
+}
+.nav-sea .nav-link:hover,
+.nav-sea .nav-link.active {
+  color: var(--sea-light);
+}
+.nav-sea .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.nav-sea .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* 首页横幅：海洋渐变 */
+.hero-sea {
+  background: linear-gradient(135deg, var(--sea-deep) 0%, var(--sea) 55%, var(--sea-light) 100%);
+}
+.hero-sea .lead {
+  color: var(--foam);
+}
+
+/* 主按钮：海蓝 */
+.btn-sea {
+  --bs-btn-bg: var(--sea);
+  --bs-btn-border-color: var(--sea);
+  --bs-btn-color: #ffffff;
+  --bs-btn-hover-bg: var(--sea-deep);
+  --bs-btn-hover-border-color: var(--sea-deep);
+  --bs-btn-hover-color: #ffffff;
+}
+
+/* 卡片：悬浮上浮 + 浅海顶边 */
+.card {
+  border-top: 3px solid var(--sea-light);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(1, 87, 155, 0.15);
+}
+
+/* 汇总卡片：类别色顶边 */
+.card-sum-food    { border-top-color: #ef5350; }
+.card-sum-study   { border-top-color: #5c6bc0; }
+.card-sum-travel  { border-top-color: #26a69a; }
+.card-sum-fun     { border-top-color: #ffa726; }
+
+/* 图表容器固定高度，防止初始化时高度塌陷 */
+#bar-chart   { height: 360px; }
+#line-chart  { height: 320px; }
+
+/* 筛选按钮组 */
+#record-filters .filter-btn.active {
+  font-weight: 600;
+  box-shadow: 0 0 0 2px var(--sea-light) inset;
+}
+
+/* 明细表：金额右对齐，合计行浅沙底 */
+#record-body td:last-child {
+  font-variant-numeric: tabular-nums;
+}
+#record-foot td {
+  background-color: var(--sand);
+  font-weight: 600;
+}
+
+/* 空结果提示 */
+.empty-tip {
+  color: #6c757d;
+  text-align: center;
+  padding: 24px 0;
+}
